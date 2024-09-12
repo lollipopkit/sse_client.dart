@@ -19,7 +19,7 @@ class EventSourceEncoder extends Converter<Event, List<int>> {
 
   @override
   List<int> convert(Event input) {
-    String payload = convertToString(input);
+    final payload = convertToString(input);
     List<int> bytes = utf8.encode(payload);
     if (compressed) {
       bytes = gzip.encode(bytes);

@@ -6,9 +6,10 @@ main() async {
   // approach. This will change once https://github.com/dart-lang/http/issues/1
   // is fixed.
 
-  EventSource eventSource = await EventSource.connect(
-      "http://example.org/events",
-      client: BrowserClient());
+  var eventSource = await EventSource.connect(
+    "http://example.org/events",
+    client: BrowserClient(),
+  );
   // listen for events
   eventSource.listen((Event event) {
     print("New event:");

@@ -4,8 +4,7 @@ main() async {
   // Because EventSource uses the http package, all platforms for which http
   // works, will be able to use the generic method:
 
-  EventSource eventSource =
-      await EventSource.connect("http://example.org/events");
+  var eventSource = await EventSource.connect("http://example.org/events");
   // listen for events
   eventSource.listen((Event event) {
     print("New event:");
@@ -16,8 +15,10 @@ main() async {
   // If you know the last event.id from a previous connection, you can try this:
 
   String lastId = "iknowmylastid";
-  eventSource = await EventSource.connect("http://example.org/events",
-      lastEventId: lastId);
+  eventSource = await EventSource.connect(
+    "http://example.org/events",
+    lastEventId: lastId,
+  );
   // listen for events
   eventSource.listen((Event event) {
     print("New event:");
